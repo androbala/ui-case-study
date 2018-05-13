@@ -16,3 +16,26 @@
 .App-intro {
   font-size: large;
 }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+	color: dimgrey;
+}
+
+.low {
+	color: red;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background-color: #C4C3C3;
+	
+}

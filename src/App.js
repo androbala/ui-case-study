@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
 
+import "./../node_modules/slick-carousel/slick/slick.css";
+import "./../node_modules/slick-carousel/slick/slick-theme.css";
+import './../node_modules/font-awesome/css/font-awesome.min.css';
+
+import './App.css';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -10,6 +14,11 @@ import Button from 'material-ui/Button';
 import red from 'material-ui/colors/red';
 import Typography from 'material-ui/Typography';
 
+import Slider from "react-slick";
+import Rating from "react-rating";
+//import FontAwesome from "react-fontawesome";
+//todo: might not be used
+
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
@@ -17,19 +26,38 @@ const styles = theme => ({
 	},
 	container: {
 		//backgroundColor: '#00ff00',
-		marginTop: 50,
 	},
 	leftSection: {
-		backgroundColor: '#ffff00',
+		//backgroundColor: '#ffff00',
 		textAlign: 'center',
 		padding: 15,
 	},
 	rightSection: {
 		//backgroundColor: '#ffff00',
 		padding: 15,
+		marginTop: 45,
+	},
+	productTitle: {
+		fontSize: '28px',
+		color: '#7f7f7f',
+		align: 'center',
+		//backgroundColor: 'yellow',
+		padding: 15,
+	},
+	primaryImage: {
+		width: '70%',
+		margin: '0 auto',
+	},
+	secondaryImage: {
+		width: '50%',
+		margin: '0 auto',
+	},
+	slider: {
+		width: '80%',
+		margin: '20px auto 0px auto',
 	},
 	price: {
-		fontSize: '25px'
+		fontSize: '27px'
 	},
 	smText: {
 		fontSize: '12px',
@@ -65,22 +93,32 @@ const styles = theme => ({
 	},
 	ratingsText: {
 		float: 'left',
+		marginLeft: 10,
 	},
 	reviewsText: {
 		float: 'right',
+		marginRight: 10,
+		paddingTop: 15,
 	},
 	commentsSection: {
-		backgroundColor: 'grey',
 		textAlign: 'left',
-		marginTop: 25,
+		display: 'inline-block',
+		backgroundColor: '#F0F0F0',
+		marginTop: 15,
 	},
 	proSection: {
+		backgroundColor: '#F0F0F0',
 		float: 'left',
-		width: '50%',
+		width: '43%',
+		paddingBottom: 10,
+		paddingLeft: 15,
 	},
 	conSection: {
+		backgroundColor: '#F0F0F0',
 		float: 'right',
-		width: '50%',
+		width: '43%',
+		paddingRight: 15,
+		paddingBottom: 10,
 	},
 });
 
@@ -95,6 +133,20 @@ class App extends Component {
 	render() {
 		const { classes } = this.props;
 		const { alignItems, direction, justify } = this.state;
+		const settings = {
+			dots: false,
+			infinite: true,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			focusOnSelect: true,
+			autoplay: true,
+			autoplaySpeed: 1000,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			initOnload: true,
+		};
+
 		return (
 			<div className={classes.root}>
 				<Grid
@@ -109,16 +161,32 @@ class App extends Component {
 					</Grid>
 					<Grid item xs={12} sm={10} md={4}>
 						<div className={classes.leftSection}>
+							<p className={classes.productTitle}>
+									Ninja Profession Blender
+									with Single Serve Blending Cups
+							</p>
 							<div>
-								Ninja Profession Blender
-								with Single Serve Blending Cups
+								<img src='http://target.scene7.com/is/image/Target/14263758' className={classes.primaryImage}/>
 							</div>
-							<div>
-								<img src='http://target.scene7.com/is/image/Target/14263758' />
+							<div className={classes.slider}>
+								<Slider {...settings}>
+									<div>
+										<img src='http://target.scene7.com/is/image/Target/14263758_Alt01' className={classes.secondaryImage}/>
+									</div>
+									<div>
+										<img src='http://target.scene7.com/is/image/Target/14263758_Alt02' className={classes.secondaryImage}/>
+									</div>
+									<div>
+										<img src='http://target.scene7.com/is/image/Target/14263758_Alt03' className={classes.secondaryImage}/>
+									</div>
+									<div>
+										<img src='http://target.scene7.com/is/image/Target/14263758_Alt04' className={classes.secondaryImage}/>
+									</div>
+								</Slider>
 							</div>
 						</div>
 					</Grid>
-					<Grid item xs={12} sm={10} md={4} alignContent={'flex-start'}>
+					<Grid item xs={12} sm={10} md={4} >
 						<div className={classes.rightSection}>
 							<div>
 								<span className={classes.price}>
@@ -137,10 +205,10 @@ class App extends Component {
 							<hr/>
 
 							<div>
-								<input type={'text'} value={'quantity:'}/>
+								<input type={'text'} defaultValue={'quantity:'}/>
 							</div>
 
-							<div style={{'text-align': 'center'}}>
+							<div>
 								<Button
 									variant="raised"
 									color="primary"
@@ -168,7 +236,7 @@ class App extends Component {
 								</span>
 							</div>
 
-							<div style={{'text-align': 'center'}}>
+							<div>
 								<Button
 									variant="raised"
 									color="default"
@@ -229,24 +297,76 @@ class App extends Component {
 					<Grid item xs={12} sm={10} md={4}>
 						<div className={classes.leftSection}>
 							<div className={classes.ratingsSection}>
-								<span className={classes.ratingsText}>*****overall</span>
+								<span className={classes.ratingsText}>
+									<Rating
+										emptySymbol="fa fa-star-o fa-2x low"
+										fullSymbol="fa fa-star fa-2x low"
+									/>overall
+								</span>
 								<span className={classes.reviewsText}>view all 14 reviews</span>
 							</div>
-							<div style={{'clear': 'both'}}></div>
+							<div className="clearfix"></div>
 							<div className={classes.commentsSection}>
 								<div className={classes.proSection}>
-									PRO
-									<p>
+									<div>
+										<p>
+											PRO <br/>
+											Most helpful 4-5 star review
+										</p>
+									</div>
+									<hr/>
+									<div>
+										<Rating
+										emptySymbol="fa fa-star-o fa-1x low"
+										fullSymbol="fa fa-star fa-1x low"
+										initialRating={5}
+										/>
+									</div>
+									<h4>
 										Fantastic Blender
+									</h4>
+									<p align="left">
+										This blender works amazingly, and blends within seconds. The single
+										serve cups also work really well for smoothies or protein shakes!
+									</p>
+									<p>
+										<a href="#">
+											Eric
+										</a>
+										April 18, 2013
 									</p>
 								</div>
 								<div className={classes.conSection}>
-									CON
+									<div>
+										<p>
+											CON <br/>
+											Most helpful 4-5 star review
+										</p>
+									</div>
+									<hr/>
+									<div>
+										<Rating
+											emptySymbol="fa fa-star-o fa-1x low"
+											fullSymbol="fa fa-star fa-1x low"
+											initialRating={1}
+										/>
+									</div>
+									<h4>
+										Fantastic Blender
+									</h4>
+									<p align="left">
+										This blender works amazingly, and blends within seconds. The single
+										serve cups also work really well for smoothies or protein shakes!
+									</p>
 									<p>
-										Very unhappy
+										<a href="#">
+											Eric
+										</a>
+										April 18, 2013
 									</p>
 								</div>
 							</div>
+							<div className="clearfix"></div>
 						</div>
 					</Grid>
 					<Grid item xs={12} sm={10} md={4}>
