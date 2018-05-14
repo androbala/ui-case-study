@@ -1,32 +1,53 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { withStyles } from 'material-ui';
 //import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-const ProductQuantity = props => {
-    const { classes = {} } = props
+class ProductQuantity extends Component {
+	state = {
+		qty: 2,
+	}
 
-    return (
-        <div className={classes.qtyDiv}>
-            <span className={classes.qtyLbl}>
-                quantity:
-            </span>
-            <span>
-                <Button variant="fab" color="default" aria-label="add" className={classes.qtyBtn}>
-                    <RemoveIcon />
-                </Button>
-            </span>
-            <input type="text" className={classes.qtyInput} defaultValue={100}/>
-            <span>
-                <Button variant="fab" color="default" aria-label="add" className={classes.qtyBtn}>
-                    <AddIcon />
-                </Button>
-            </span>
-            <div className='clearfix'></div>
-        </div>
-    )
+	addQty = () => {
+		let new_qty = this.state.qty + 1;
+		this.setState({qty: new_qty})
+	}
+
+	removeQty = () => {
+		let new_qty;
+		if (this.state.qty > 0) {
+			new_qty = this.state.qty - 1;
+		} else {
+			new_qty = 0;
+		}
+		this.setState({qty: new_qty})
+	}
+
+	render() {
+		const { classes = {} } = this.props;
+		const { qty } = this.state;
+		return (
+			<div className={classes.qtyDiv}>
+				<span className={classes.qtyLbl}>
+					quantity:
+				</span>
+				<span>
+					<Button variant="fab" color="default" aria-label="add" className={classes.qtyBtn} onClick={this.addQty}>
+						<AddIcon />
+					</Button>
+				</span>
+				<input type="text" className={classes.qtyInput} value={qty} readOnly={true}/>
+				<span>
+					<Button variant="fab" color="default" aria-label="remove" className={classes.qtyBtn} onClick={this.removeQty}>
+						<RemoveIcon />
+					</Button>
+				</span>
+				<div className='clearfix'></div>
+			</div>
+		)
+	}
 }
 
 const styles = {
@@ -50,12 +71,13 @@ const styles = {
 		float: 'left',
 	},
 	qtyInput: {
-		width: '40px',
+		width: '30px',
 		background: 'none',
 		border: 'none',
 		height: '30px',
-		paddingLeft: 10,
-		fontSize: '15px',
+		paddingLeft: 20,
+		paddingTop: 5,
+		fontSize: '16px',
 		float: 'right',
 	}
 }
