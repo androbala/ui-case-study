@@ -8,7 +8,7 @@ const ProductHighlights = props => {
 
     return (
         <div className={classes.highlightsDiv}>
-            <Typography variant="display1" gutterBottom>
+            <Typography variant="display1" className={classes.highlightsHeader}>
                 product highlights
             </Typography>
 			<ul>
@@ -26,7 +26,11 @@ const styles = {
     },
     highlightsItem: {
 		padding: 3,
+		color: '#757575',
     },
+	highlightsHeader: {
+		color: '#000000',
+	}
 }
 
 export default withStyles(styles)(ProductHighlights)

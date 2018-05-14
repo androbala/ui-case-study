@@ -36,6 +36,8 @@ const styles = {
 	},
 	findTxt: {
 		textAlign: 'center',
+		marginTop: 2,
+		fontSize: '14px',
 	}
 }
 

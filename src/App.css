@@ -30,12 +30,11 @@
 }
 
 .low {
-	color: red;
+	color: #d32f2f;
 }
 
 hr {
 	border: none;
 	height: 1px;
 	background-color: #DCDCDC;
-	
 }

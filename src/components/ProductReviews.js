@@ -1,10 +1,13 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import Rating from 'react-rating'
+import dateFormat from  'dateformat'
+import grey from '@material-ui/core/colors/grey';
 
 const ProductReviews = props => {
-    const { classes = {} } = props
-
+    const { classes = {}, reviews } = props
+	const pro = reviews.Pro[0]
+	const con = reviews.Con[0]
     return (
         <React.Fragment>
             <div className={classes.commentsSection}>
@@ -12,7 +15,7 @@ const ProductReviews = props => {
                     <div>
                         <p>
                             PRO <br/>
-                            Most helpful 4-5 star review
+							<span className={classes.reviewTxt}>Most helpful 4-5 star review</span>
                         </p>
                     </div>
                     <hr/>
@@ -20,28 +23,31 @@ const ProductReviews = props => {
                         <Rating
                         emptySymbol="fa fa-star-o fa-1x low"
                         fullSymbol="fa fa-star fa-1x low"
-                        initialRating={5}
+                        initialRating={Number(pro.overallRating)}
                         />
                     </div>
                     <h4>
-                        Fantastic Blender
+						{pro.title}
                     </h4>
                     <p align="left">
-                        This blender works amazingly, and blends within seconds. The single
-                        serve cups also work really well for smoothies or protein shakes!
+						{pro.review}
                     </p>
                     <p>
-                        <a href="#">
-                            Eric
-                        </a>
-                        April 18, 2013
+                        <span>
+							<a href="#" className={classes.screenNameTxt}>
+								{pro.screenName}
+                        	</a>
+						</span>
+						<span className={classes.dateSpan}>
+							{dateFormat(pro.datePosted, "mmmm d, yyyy")}
+						</span>
                     </p>
                 </div>
                 <div className={classes.conSection}>
                     <div>
                         <p>
                             CON <br/>
-                            Most helpful 4-5 star review
+							<span className={classes.reviewTxt}>Most helpful 4-5 star review</span>
                         </p>
                     </div>
                     <hr/>
@@ -49,22 +55,25 @@ const ProductReviews = props => {
                         <Rating
                             emptySymbol="fa fa-star-o fa-1x low"
                             fullSymbol="fa fa-star fa-1x low"
-                            initialRating={1}
+                            initialRating={Number(con.overallRating)}
                         />
                     </div>
                     <h4>
-                        Fantastic Blender
+						{con.title}
                     </h4>
                     <p align="left">
-                        This blender works amazingly, and blends within seconds. The single
-                        serve cups also work really well for smoothies or protein shakes!
+						{con.review}
                     </p>
                     <p>
-                        <a href="#">
-                            Eric
-                        </a>
-                        April 18, 2013
-                    </p>
+                       <span>
+							<a href="#" className={classes.screenNameTxt}>
+								{con.screenName}
+                        	</a>
+						</span>
+						<span className={classes.dateSpan}>
+							{dateFormat(con.datePosted, "mmmm d, yyyy")}
+						</span>
+					</p>
                 </div>
             </div>
             <div className="clearfix"></div>
@@ -92,7 +101,17 @@ const styles = {
 		width: '43%',
 		paddingRight: 15,
 		paddingBottom: 10,
-	}
+	},
+	dateSpan: {
+    	marginLeft: 5,
+	},
+	reviewTxt: {
+    	fontSize: '14px',
+		color: grey[600],
+	},
+	screenNameTxt: {
+    	textDecoration: 'none',
+	},
 }
 
 export default withStyles(styles)(ProductReviews)

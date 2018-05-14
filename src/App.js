@@ -53,6 +53,7 @@ class App extends Component {
 			highlights: productData.ItemDescription[0].features,
 			rating: Number(productData.CustomerReview[0].consolidatedOverallRating),
 			totalReviews: productData.CustomerReview[0].totalReviews,
+			reviews: productData.CustomerReview[0],
 		};
 		console.log(product)
 
@@ -106,7 +107,7 @@ class App extends Component {
 					<Grid item xs={12} sm={10} md={4}>
 						<div className={classes.leftSection}>
 							<ProductRating rating={product.rating} totalReviews={product.totalReviews} />
-							<ProductReviews />
+							<ProductReviews reviews={product.reviews} />
 						</div>
 					</Grid>
 					<Grid item xs={12} sm={10} md={4} />
