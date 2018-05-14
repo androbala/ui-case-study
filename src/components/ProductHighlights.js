@@ -11,9 +11,9 @@ const ProductHighlights = props => {
             <Typography variant="display1" gutterBottom>
                 product highlights
             </Typography>
-			<ul className={classes.highlightsItem}>
+			<ul>
 				{highlights && highlights.length>0 && highlights.map((highlight, index) => (
-					<li key={index}>{ReactHtmlParser(highlight)}</li>
+					<li key={index} className={classes.highlightsItem}>{ReactHtmlParser(highlight)}</li>
 				))}
 			</ul>
         </div>
@@ -25,7 +25,7 @@ const styles = {
 	    marginTop: 20,
     },
     highlightsItem: {
-
+		padding: 3,
     },
 }
 

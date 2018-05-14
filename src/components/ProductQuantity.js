@@ -7,7 +7,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 
 class ProductQuantity extends Component {
 	state = {
-		qty: 0,
+		qty: 1,
 	}
 
 	addQty = () => {

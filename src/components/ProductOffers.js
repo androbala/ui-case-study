@@ -17,7 +17,7 @@ const ProductOffers = props => {
 
 const styles = {
     promoText: {
-		fontSize: '16px',
+		fontSize: '17px',
 		color: red[700],
 		listStyleType: 'none',
 		padding: 0,
