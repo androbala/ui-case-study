@@ -1,6 +1,6 @@
 import React from 'react'
-import Slider from "react-slick";
-import { withStyles } from 'material-ui';
+import Slider from 'react-slick'
+import { withStyles } from 'material-ui'
 
 const ProductGallery = props => {
     const { classes = {} } = props
