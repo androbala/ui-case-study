@@ -51,6 +51,8 @@ class App extends Component {
 			showAddToCart: (productData.purchasingChannelCode === "0" || productData.purchasingChannelCode === "1"),
 			showFulfillmentOptions: (productData.purchasingChannelCode === "0" || productData.purchasingChannelCode === "2"),
 			highlights: productData.ItemDescription[0].features,
+			rating: Number(productData.CustomerReview[0].consolidatedOverallRating),
+			totalReviews: productData.CustomerReview[0].totalReviews,
 		};
 		console.log(product)
 
@@ -103,7 +105,7 @@ class App extends Component {
 					<Grid item xs={12} sm={12} md={2} />
 					<Grid item xs={12} sm={10} md={4}>
 						<div className={classes.leftSection}>
-							<ProductRating />
+							<ProductRating rating={product.rating} totalReviews={product.totalReviews} />
 							<ProductReviews />
 						</div>
 					</Grid>
