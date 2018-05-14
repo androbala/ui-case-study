@@ -1,24 +1,48 @@
 import React from 'react'
 import { withStyles } from 'material-ui';
+import grey from '@material-ui/core/colors/grey';
 
 const ReturnPolicyDetails = props => {
     const { classes = {} } = props
     
     return (
-        <div style={{}}>
-            <span className={classes.returnsLabel}>
-                returns |
-            </span>
-            <span className={classes.returnsLabel}>
+        <div>
+            <div className={classes.returnsLabel}>
+                returns
+            </div>
+			<div className={classes.returnsSymbol}>
+                |
+            </div>
+            <div className={classes.returnsDesc}>
                 This item must be returned within 30 days of the ship date. See return policy for details.
                 Prices, promotions, styles and availability may vary by store and online.
-            </span>
+            </div>
+			<div className='clearfix'></div>
         </div>
     )
 }
 
 const styles = {
-    returnsLabel: {}
+    returnsLabel: {
+        float: 'left',
+		fontSize: '18px',
+		color: grey[700],
+        marginRight: 4,
+        paddingTop: 2,
+    },
+	returnsSymbol: {
+        float: 'left',
+        fontSize: '28px',
+		color: grey[700],
+		marginRight: 4,
+    },
+	returnsDesc: {
+        float: 'left',
+        width: '80%',
+		fontSize: '10px',
+		color: grey[700],
+        paddingTop: 2,
+	}
 }
 
 export default withStyles(styles)(ReturnPolicyDetails)

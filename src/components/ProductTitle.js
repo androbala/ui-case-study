@@ -2,10 +2,11 @@ import React from 'react'
 import { withStyles } from 'material-ui/styles';
 
 const ProductTitle = props => {
+	const { classes = {}, title } = props
+
     return (
-        <p className={props.classes.productTitle}>
-            Ninja Profession Blender
-            with Single Serve Blending Cups
+        <p className={classes.productTitle}>
+			{title}
         </p>
     )
 }
@@ -15,7 +16,6 @@ const styles = {
 		fontSize: '28px',
 		color: '#7f7f7f',
 		align: 'center',
-		//backgroundColor: 'yellow',
 		padding: 15,
 	},
 }

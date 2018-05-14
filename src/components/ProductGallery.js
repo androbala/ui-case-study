@@ -3,7 +3,8 @@ import Slider from 'react-slick'
 import { withStyles } from 'material-ui'
 
 const ProductGallery = props => {
-    const { classes = {} } = props
+    const { classes = {}, images } = props
+
     const settings = {
         dots: false,
         infinite: true,
@@ -21,22 +22,15 @@ const ProductGallery = props => {
     return (
         <React.Fragment>
             <div>
-                <img src='http://target.scene7.com/is/image/Target/14263758' className={classes.primaryImage}/>
+                <img src={images.PrimaryImage[0].image} className={classes.primaryImage}/>
             </div>
             <div className={classes.slider}>
                 <Slider {...settings}>
-                    <div>
-                        <img src='http://target.scene7.com/is/image/Target/14263758_Alt01' className={classes.secondaryImage}/>
-                    </div>
-                    <div>
-                        <img src='http://target.scene7.com/is/image/Target/14263758_Alt02' className={classes.secondaryImage}/>
-                    </div>
-                    <div>
-                        <img src='http://target.scene7.com/is/image/Target/14263758_Alt03' className={classes.secondaryImage}/>
-                    </div>
-                    <div>
-                        <img src='http://target.scene7.com/is/image/Target/14263758_Alt04' className={classes.secondaryImage}/>
-                    </div>
+					{images.AlternateImages && images.AlternateImages.length>0 && images.AlternateImages.map((AlternateImage, index) => (
+                        <div key={index}>
+                            <img src={AlternateImage.image} className={classes.secondaryImage}/>
+                        </div>
+					))}
                 </Slider>
             </div>
         </React.Fragment>

@@ -1,31 +1,39 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import Button from 'material-ui/Button'
+import red from '@material-ui/core/colors/red';
+
 import classNames from 'classnames'
 
 const AddToCartButton = props => {
     const { classes = {} } = props
     return (
-        <Button
-            variant="raised"
-            color="primary"
-            className={classNames(classes.primaryBtn, classes.cartBtn)}
-        >
-            ADD TO CART
-        </Button>
+    	<div className={classes.addToCartDiv}>
+			<Button
+				variant="raised"
+				color="primary"
+				className={classNames(classes.primaryBtn, classes.cartBtn)}
+			>
+				ADD TO CART
+			</Button>
+		</div>
     )
 }
 
 const styles = {
-    primaryBtn: {
+	addToCartDiv: {
+		float: 'left',
+		width: '47%',
 		marginTop: 25,
 		marginRight: 6,
 		marginBottom: 15,
-		width: '47%',
-		fontColor: '#ffffff'
+	},
+    primaryBtn: {
+		width: '100%',
+		fontColor: '#ffffff',
 	},
 	cartBtn: {
-		backgroundColor: '#ff0000',
+		backgroundColor: red[700],
 	}
 }
 

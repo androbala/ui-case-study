@@ -1,33 +1,32 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import Typography from 'material-ui/Typography'
+import ReactHtmlParser from 'react-html-parser';
 
 const ProductHighlights = props => {
-    const { classes = {} } = props
+    const { classes = {}, highlights } = props
 
     return (
-        <div>
-            <Typography variant="headline" gutterBottom>
+        <div className={classes.highlightsDiv}>
+            <Typography variant="display1" gutterBottom>
                 product highlights
             </Typography>
-            <ul className={classes.highlightsItem}>
-                <li>Wattage Output: 1100 Watts</li>
-                <li>Number of Speeds: 3</li>
-                <li>Capacity (volume): 72.0 Oz.</li>
-                <li>Appliance Capabilties: Blends</li>
-                <li>Includes: Travel Lid</li>
-                <li>Material: Plastics</li>
-                <li>Finish: Painted</li>
-                <li>Metal Finish: Chrome</li>
-                <li>Safety and Security Features: Non-Slip Base</li>
-                <li>Care and Cleaning: Easy-To-Clean, Dishwasher Sage Parts</li>
-            </ul>
+			<ul className={classes.highlightsItem}>
+				{highlights && highlights.length>0 && highlights.map((highlight, index) => (
+					<li key={index}>{ReactHtmlParser(highlight)}</li>
+				))}
+			</ul>
         </div>
     )
 }
 
 const styles = {
-    highlightsItem: {}
+	highlightsDiv: {
+	    marginTop: 20,
+    },
+    highlightsItem: {
+
+    },
 }
 
 export default withStyles(styles)(ProductHighlights)
