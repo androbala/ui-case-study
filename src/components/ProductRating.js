@@ -13,9 +13,18 @@ const ProductRating = props => {
                         emptySymbol="fa fa-star-o fa-2x low"
                         fullSymbol="fa fa-star fa-2x low"
 						initialRating={rating}
-					/><b>overall</b>
+					/>
+					<b>
+						overall
+					</b>
                 </span>
-				<span className={classes.reviewsText}><b>view all {totalReviews} reviews</b></span>
+				<span className={classes.reviewsText}>
+					<b>
+						<a href="#" className={classes.reviewsLink}>
+							view all {totalReviews} reviews
+						</a>
+					</b>
+				</span>
             </div>
             <div className="clearfix"></div>
         </React.Fragment>
@@ -25,14 +34,18 @@ const ProductRating = props => {
 const styles = {
 	ratingsText: {
 		float: 'left',
-		marginLeft: 10,
+		marginLeft: 7,
 		fontSize: '17px',
 	},
 	reviewsText: {
 		float: 'right',
-		marginRight: 10,
+		marginRight: 7,
 		paddingTop: 15,
 		fontSize: '17px',
+	},
+	reviewsLink: {
+		textDecoration: 'none',
+		color: '#000000',
 	},
 }
 
