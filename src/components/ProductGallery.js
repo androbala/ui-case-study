@@ -14,8 +14,6 @@ class ProductGallery extends Component {
 	}
 
 	updatePrimaryImage = (altImage) => {
-		//let new_qty = this.state.qty + 1;
-		console.log(altImage);
 		this.setState({primaryImage: altImage.image})
 	}
 

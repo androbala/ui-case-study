@@ -29,10 +29,6 @@ class App extends Component {
 		productData: jsonData.CatalogEntryView[0]
 	}
 
-	componentDidMount() {
-		//console.log(this.state.productData);
-	}
-
 	render() {
 		const { classes = {} } = this.props;
 		const flexProps = {
@@ -42,7 +38,7 @@ class App extends Component {
 		};
 
 		const productData = this.state.productData;
-		//map product attributes
+		//mapping product attributes
 		const product = {
 			title: productData.title,
 			images: productData.Images[0],
@@ -55,7 +51,6 @@ class App extends Component {
 			totalReviews: productData.CustomerReview[0].totalReviews,
 			reviews: productData.CustomerReview[0],
 		};
-		console.log(product)
 
 		return (
 			<div className={classes.root}>
@@ -118,7 +113,6 @@ class App extends Component {
 		);
 	}
 }
-
 
 const styles = theme => ({
 	root: {
