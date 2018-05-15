@@ -1,15 +1,16 @@
 import React from 'react'
-import { withStyles } from 'material-ui'
+import { withStyles } from 'material-ui';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import red from '@material-ui/core/colors/red'
+import {map} from 'lodash'
 
 const ProductOffers = props => {
-	const { classes = {}, offers } = props
+	const { classes = {}, offers = [] } = props
 
-	return (
-		<ul className={classes.promoText}>
-			{offers && offers.length>0 && offers.map((offer, index) => (
-				<li key={index}><LocalOfferIcon className={classes.OfferIcon}/> {offer.Description[0].shortDescription.toLowerCase()}</li>
+    return (
+        <ul className={classes.promoText}>
+			{map(offers, (offer, index) => (
+           		<li key={index}><LocalOfferIcon className={classes.OfferIcon}/> {offer.Description[0].shortDescription.toLowerCase()}</li>
 			))}
 		</ul>
 	)

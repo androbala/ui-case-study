@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui'
 import Rating from 'react-rating'
 
 const ProductRating = props => {
-	const { classes = {}, rating, totalReviews } = props
+    const { classes = {}, rating = 0, totalReviews = 0 } = props
 
 	return (
 		<React.Fragment>

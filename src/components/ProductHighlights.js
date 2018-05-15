@@ -2,9 +2,10 @@ import React from 'react'
 import { withStyles } from 'material-ui'
 import Typography from 'material-ui/Typography'
 import ReactHtmlParser from 'react-html-parser'
+import {map} from 'lodash'
 
 const ProductHighlights = props => {
-	const { classes = {}, highlights } = props
+    const { classes = {}, highlights = [] } = props
 
 	return (
 		<div className={classes.highlightsDiv}>
@@ -12,7 +13,7 @@ const ProductHighlights = props => {
                 product highlights
 			</Typography>
 			<ul className={classes.highlightsList}>
-				{highlights && highlights.length>0 && highlights.map((highlight, index) => (
+				{map(highlights, (highlight, index) => (
 					<li key={index} className={classes.highlightsItem}>
 						{
 							ReactHtmlParser(highlight)

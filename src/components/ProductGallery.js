@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Slider from 'react-slick'
 import { withStyles } from 'material-ui'
+import {get, map} from 'lodash'
 
 class ProductGallery extends Component {
 	state = {
@@ -9,16 +10,14 @@ class ProductGallery extends Component {
 
 	static getDerivedStateFromProps(nextProps, prevState) {
 		return {
-			primaryImage: nextProps.images.PrimaryImage[0].image
+			primaryImage: get(nextProps, 'images.PrimaryImage[0].image')
 		}
 	}
 
-	updatePrimaryImage = (altImage) => {
-		this.setState({primaryImage: altImage.image})
-	}
+	updatePrimaryImage = (altImage) => this.setState({primaryImage: altImage.image})
 
 	render() {
-		const {classes = {}, images} = this.props
+		const {classes = {}, images = {}} = this.props
 		const {primaryImage} = this.state
 
 		const settings = {
@@ -42,7 +41,7 @@ class ProductGallery extends Component {
 				</div>
 				<div className={classes.slider}>
 					<Slider {...settings}>
-						{images.AlternateImages && images.AlternateImages.length > 0 && images.AlternateImages.map((altImage, index) => (
+						{map(images.AlternateImages, (altImage, index) => (
 							<div key={index} className={classes.imgPlaceholder} onClick={(e) => this.updatePrimaryImage(altImage, e)}>
 								<img src={altImage.image} className={classes.secondaryImage}/>
 							</div>

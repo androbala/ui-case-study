@@ -5,7 +5,7 @@ import dateFormat from  'dateformat'
 import grey from '@material-ui/core/colors/grey'
 
 const ProductReviews = props => {
-	const { classes = {}, reviews } = props
+    const { classes = {}, reviews = {} } = props
 	const pro = reviews.Pro[0]
 	const con = reviews.Con[0]
 	return (

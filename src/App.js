@@ -8,6 +8,7 @@ import './App.css';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
+import {get} from 'lodash'
 
 import ProductTitle from './components/ProductTitle'
 import ProductGallery from './components/ProductGallery'
@@ -26,30 +27,30 @@ import jsonData from './data/item-data.json'
 
 class App extends Component {
 	state = {
-		productData: jsonData.CatalogEntryView[0]
+		productData: get(jsonData, 'CatalogEntryView[0]') || {}
 	}
 
 	render() {
-		const { classes = {} } = this.props;
+		const { classes = {} } = this.props
 		const flexProps = {
 			direction: 'row',
 			justify: 'center',
 			alignItems: 'flex-start',
-		};
+		}
 
-		const productData = this.state.productData;
+		const { productData = {} } = this.state
 		//mapping product attributes
 		const product = {
-			title: productData.title,
-			images: productData.Images[0],
-			price: productData.Offers[0].OfferPrice[0].formattedPriceValue,
-			offers: productData.Promotions,
+			title: get(productData, 'title') || '',
+			images: get(productData, 'Images[0]') || [],
+			price: get(productData, 'Offers[0].OfferPrice[0].formattedPriceValue') || '',
+			offers: get(productData, 'Promotions') || [],
 			showAddToCart: (productData.purchasingChannelCode === "0" || productData.purchasingChannelCode === "1"),
 			showFulfillmentOptions: (productData.purchasingChannelCode === "0" || productData.purchasingChannelCode === "2"),
-			highlights: productData.ItemDescription[0].features,
-			rating: Number(productData.CustomerReview[0].consolidatedOverallRating),
-			totalReviews: productData.CustomerReview[0].totalReviews,
-			reviews: productData.CustomerReview[0],
+			highlights: get(productData, 'ItemDescription[0].features') || [],
+			rating: Number(get(productData, 'CustomerReview[0].consolidatedOverallRating') || 0),
+			totalReviews: get(productData, 'CustomerReview[0].totalReviews') || 0,
+			reviews: get(productData, 'CustomerReview[0]') || {}
 		};
 
 		return (
