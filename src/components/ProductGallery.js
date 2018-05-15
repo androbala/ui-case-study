@@ -1,54 +1,76 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Slider from 'react-slick'
 import { withStyles } from 'material-ui'
 
-const ProductGallery = props => {
-    const { classes = {}, images } = props
+class ProductGallery extends Component {
+	state = {
+		primaryImage: '',
+	}
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        focusOnSelect: true,
-        autoplay: true,
-        autoplaySpeed: 1000,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        initOnload: true,
-    }
+	static getDerivedStateFromProps(nextProps, prevState) {
+		return {
+			primaryImage: nextProps.images.PrimaryImage[0].image
+		}
+	}
 
-    return (
-        <React.Fragment>
-            <div>
-                <img src={images.PrimaryImage[0].image} className={classes.primaryImage}/>
-            </div>
-            <div className={classes.slider}>
-                <Slider {...settings}>
-					{images.AlternateImages && images.AlternateImages.length>0 && images.AlternateImages.map((AlternateImage, index) => (
-                        <div key={index}>
-                            <img src={AlternateImage.image} className={classes.secondaryImage}/>
-                        </div>
-					))}
-                </Slider>
-            </div>
-        </React.Fragment>
-    )
+	updatePrimaryImage = (altImage) => {
+		//let new_qty = this.state.qty + 1;
+		console.log(altImage);
+		this.setState({primaryImage: altImage.image})
+	}
+
+	render() {
+		const {classes = {}, images} = this.props
+		const {primaryImage} = this.state
+
+		const settings = {
+			dots: false,
+			infinite: true,
+			speed: 2000,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			focusOnSelect: true,
+			autoplay: false,
+			autoplaySpeed: 2000,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			initOnload: true,
+		}
+
+		return (
+			<React.Fragment>
+				<div>
+					<img src={primaryImage} className={classes.primaryImage}/>
+				</div>
+				<div className={classes.slider}>
+					<Slider {...settings}>
+						{images.AlternateImages && images.AlternateImages.length > 0 && images.AlternateImages.map((altImage, index) => (
+							<div key={index} className={classes.imgPlaceholder} onClick={(e) => this.updatePrimaryImage(altImage, e)}>
+								<img src={altImage.image} className={classes.secondaryImage}/>
+							</div>
+						))}
+					</Slider>
+				</div>
+			</React.Fragment>
+		)
+	}
 }
 
 const styles = {
     primaryImage: {
-		width: '70%',
+		width: '75%',
 		margin: '0 auto',
 	},
 	secondaryImage: {
-		width: '50%',
+		width: '55%',
 		margin: '0 auto',
     },
+	imgPlaceholder: {
+		margin: 5,
+	},
     slider: {
-		width: '80%',
-		margin: '20px auto 0px auto',
+		width: '70%',
+		margin: '30px auto 0px auto',
 	}
 }
 
