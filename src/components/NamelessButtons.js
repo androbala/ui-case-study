@@ -13,7 +13,7 @@ const NamelessButtons = props => {
 				color="default"
 				className={classNames(classes.secondaryBtn)}
 			>
-                ADD TO REGISTRY
+                ADD REGISTRY
 			</Button>
 
 			<Button
@@ -38,7 +38,7 @@ const NamelessButtons = props => {
 const styles = {
 	secondaryBtn: {
 		fontSize: 12,
-		width: '30%',
+		width: '31%',
 		marginTop: 25,
 		marginRight: 8,
 		marginBottom: 15,

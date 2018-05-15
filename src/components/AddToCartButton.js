@@ -23,7 +23,7 @@ const AddToCartButton = props => {
 const styles = {
 	addToCartDiv: {
 		float: 'left',
-		width: '47%',
+		width: '48%',
 		marginTop: 25,
 		marginRight: 6,
 		marginBottom: 15,

@@ -27,7 +27,7 @@ class ProductGallery extends Component {
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			focusOnSelect: true,
-			autoplay: false,
+			autoplay: true,
 			autoplaySpeed: 2000,
 			slidesToShow: 3,
 			slidesToScroll: 1,

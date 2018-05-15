@@ -5,7 +5,7 @@ import ReactHtmlParser from 'react-html-parser'
 import {map} from 'lodash'
 
 const ProductHighlights = props => {
-    const { classes = {}, highlights = [] } = props
+	const { classes = {}, highlights = [] } = props
 
 	return (
 		<div className={classes.highlightsDiv}>
