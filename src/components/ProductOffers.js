@@ -1,29 +1,29 @@
 import React from 'react'
-import { withStyles } from 'material-ui';
-import LocalOfferIcon from '@material-ui/icons/LocalOffer';
-import red from '@material-ui/core/colors/red';
+import { withStyles } from 'material-ui'
+import LocalOfferIcon from '@material-ui/icons/LocalOffer'
+import red from '@material-ui/core/colors/red'
 
 const ProductOffers = props => {
 	const { classes = {}, offers } = props
 
-    return (
-        <ul className={classes.promoText}>
+	return (
+		<ul className={classes.promoText}>
 			{offers && offers.length>0 && offers.map((offer, index) => (
-           		<li key={index}><LocalOfferIcon className={classes.OfferIcon}/> {offer.Description[0].shortDescription.toLowerCase()}</li>
+				<li key={index}><LocalOfferIcon className={classes.OfferIcon}/> {offer.Description[0].shortDescription.toLowerCase()}</li>
 			))}
-        </ul>
-    )
+		</ul>
+	)
 }
 
 const styles = {
-    promoText: {
+	promoText: {
 		fontSize: '17px',
 		color: red[700],
 		listStyleType: 'none',
 		padding: 0,
 	},
 	OfferIcon: {
-    	fontSize: '15px',
+		fontSize: '15px',
 		paddingTop: 5,
 	}
 }

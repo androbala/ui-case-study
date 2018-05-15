@@ -1,16 +1,16 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import Typography from 'material-ui/Typography'
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser'
 
 const ProductHighlights = props => {
-    const { classes = {}, highlights } = props
+	const { classes = {}, highlights } = props
 
-    return (
-        <div className={classes.highlightsDiv}>
-            <Typography variant="display1" className={classes.highlightsHeader}>
+	return (
+		<div className={classes.highlightsDiv}>
+			<Typography variant="display1" className={classes.highlightsHeader}>
                 product highlights
-            </Typography>
+			</Typography>
 			<ul className={classes.highlightsList}>
 				{highlights && highlights.length>0 && highlights.map((highlight, index) => (
 					<li key={index} className={classes.highlightsItem}>
@@ -20,22 +20,22 @@ const ProductHighlights = props => {
 					</li>
 				))}
 			</ul>
-        </div>
-    )
+		</div>
+	)
 }
 
 const styles = {
 	highlightsDiv: {
 	    marginTop: 20,
-    },
+	},
 	highlightsList: {
 		padding: 0,
 		marginLeft: 20,
 	},
-    highlightsItem: {
+	highlightsItem: {
 		padding: 3,
 		color: '#757575',
-    },
+	},
 	highlightsHeader: {
 		color: '#000000',
 	}

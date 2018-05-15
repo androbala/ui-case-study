@@ -2,18 +2,18 @@ import React from 'react'
 import { withStyles } from 'material-ui'
 
 const PriceBlock = props => {
-    const { classes = {}, price } = props
+	const { classes = {}, price } = props
     
-    return (
-        <div className={classes.priceBlock}>
-            <span className={classes.price}>
+	return (
+		<div className={classes.priceBlock}>
+			<span className={classes.price}>
 				{price}
-            </span>
-            <span className={classes.smText}>
+			</span>
+			<span className={classes.smText}>
                 online price
-            </span>
-        </div>
-    )
+			</span>
+		</div>
+	)
 }
 
 const styles = {

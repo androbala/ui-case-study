@@ -2,87 +2,87 @@ import React from 'react'
 import { withStyles } from 'material-ui'
 import Rating from 'react-rating'
 import dateFormat from  'dateformat'
-import grey from '@material-ui/core/colors/grey';
+import grey from '@material-ui/core/colors/grey'
 
 const ProductReviews = props => {
-    const { classes = {}, reviews } = props
+	const { classes = {}, reviews } = props
 	const pro = reviews.Pro[0]
 	const con = reviews.Con[0]
-    return (
-        <React.Fragment>
-            <div className={classes.commentsSection}>
-                <div className={classes.proSection}>
-                    <div>
-                        <p>
+	return (
+		<React.Fragment>
+			<div className={classes.commentsSection}>
+				<div className={classes.proSection}>
+					<div>
+						<p>
                             PRO <br/>
 							<span className={classes.reviewTxt}>Most helpful 4-5 star review</span>
-                        </p>
-                    </div>
-                    <hr/>
-                    <div>
-                        <Rating
-                        emptySymbol="fa fa-star-o fa-1x low"
-                        fullSymbol="fa fa-star fa-1x low"
-                        initialRating={Number(pro.overallRating)}
-                        />
-                    </div>
-                    <h4>
+						</p>
+					</div>
+					<hr/>
+					<div>
+						<Rating
+							emptySymbol="fa fa-star-o fa-1x low"
+							fullSymbol="fa fa-star fa-1x low"
+							initialRating={Number(pro.overallRating)}
+						/>
+					</div>
+					<h4>
 						{pro.title}
-                    </h4>
-                    <p align="left">
+					</h4>
+					<p align="left">
 						{pro.review}
-                    </p>
-                    <p>
-                        <span>
+					</p>
+					<p>
+						<span>
 							<a href="#" className={classes.screenNameTxt}>
 								{pro.screenName}
-                        	</a>
+							</a>
 						</span>
 						<span className={classes.dateSpan}>
-							{dateFormat(pro.datePosted, "mmmm d, yyyy")}
-						</span>
-                    </p>
-                </div>
-                <div className={classes.conSection}>
-                    <div>
-                        <p>
-                            CON <br/>
-							<span className={classes.reviewTxt}>Most helpful 4-5 star review</span>
-                        </p>
-                    </div>
-                    <hr/>
-                    <div>
-                        <Rating
-                            emptySymbol="fa fa-star-o fa-1x low"
-                            fullSymbol="fa fa-star fa-1x low"
-                            initialRating={Number(con.overallRating)}
-                        />
-                    </div>
-                    <h4>
-						{con.title}
-                    </h4>
-                    <p align="left">
-						{con.review}
-                    </p>
-                    <p>
-                       <span>
-							<a href="#" className={classes.screenNameTxt}>
-								{con.screenName}
-                        	</a>
-						</span>
-						<span className={classes.dateSpan}>
-							{dateFormat(con.datePosted, "mmmm d, yyyy")}
+							{dateFormat(pro.datePosted, 'mmmm d, yyyy')}
 						</span>
 					</p>
-                </div>
-            </div>
-            <div className="clearfix"></div>
-        </React.Fragment>
-    )
+				</div>
+				<div className={classes.conSection}>
+					<div>
+						<p>
+                            CON <br/>
+							<span className={classes.reviewTxt}>Most helpful 4-5 star review</span>
+						</p>
+					</div>
+					<hr/>
+					<div>
+						<Rating
+							emptySymbol="fa fa-star-o fa-1x low"
+							fullSymbol="fa fa-star fa-1x low"
+							initialRating={Number(con.overallRating)}
+						/>
+					</div>
+					<h4>
+						{con.title}
+					</h4>
+					<p align="left">
+						{con.review}
+					</p>
+					<p>
+						<span>
+							<a href="#" className={classes.screenNameTxt}>
+								{con.screenName}
+							</a>
+						</span>
+						<span className={classes.dateSpan}>
+							{dateFormat(con.datePosted, 'mmmm d, yyyy')}
+						</span>
+					</p>
+				</div>
+			</div>
+			<div className="clearfix"></div>
+		</React.Fragment>
+	)
 }
 
 const styles = {
-    commentsSection: {
+	commentsSection: {
 		textAlign: 'left',
 		display: 'inline-block',
 		backgroundColor: '#F0F0F0',
@@ -103,14 +103,14 @@ const styles = {
 		paddingBottom: 10,
 	},
 	dateSpan: {
-    	marginLeft: 5,
+		marginLeft: 5,
 	},
 	reviewTxt: {
-    	fontSize: '14px',
+		fontSize: '14px',
 		color: grey[600],
 	},
 	screenNameTxt: {
-    	textDecoration: 'none',
+		textDecoration: 'none',
 	},
 }
 

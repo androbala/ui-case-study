@@ -3,21 +3,21 @@ import { withStyles } from 'material-ui'
 import Rating from 'react-rating'
 
 const ProductRating = props => {
-    const { classes = {}, rating, totalReviews } = props
+	const { classes = {}, rating, totalReviews } = props
 
-    return (
-        <React.Fragment>
-            <div>
-                <span className={classes.ratingsText}>
-                    <Rating
-                        emptySymbol="fa fa-star-o fa-2x low"
-                        fullSymbol="fa fa-star fa-2x low"
+	return (
+		<React.Fragment>
+			<div>
+				<span className={classes.ratingsText}>
+					<Rating
+						emptySymbol="fa fa-star-o fa-2x low"
+						fullSymbol="fa fa-star fa-2x low"
 						initialRating={rating}
 					/>
 					<b>
 						overall
 					</b>
-                </span>
+				</span>
 				<span className={classes.reviewsText}>
 					<b>
 						<a href="#" className={classes.reviewsLink}>
@@ -25,10 +25,10 @@ const ProductRating = props => {
 						</a>
 					</b>
 				</span>
-            </div>
-            <div className="clearfix"></div>
-        </React.Fragment>
-    )
+			</div>
+			<div className="clearfix"></div>
+		</React.Fragment>
+	)
 }
 
 const styles = {

@@ -1,14 +1,14 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import Button from 'material-ui/Button'
-import red from '@material-ui/core/colors/red';
+import red from '@material-ui/core/colors/red'
 
 import classNames from 'classnames'
 
 const AddToCartButton = props => {
-    const { classes = {} } = props
-    return (
-    	<div className={classes.addToCartDiv}>
+	const { classes = {} } = props
+	return (
+		<div className={classes.addToCartDiv}>
 			<Button
 				variant="raised"
 				color="primary"
@@ -17,7 +17,7 @@ const AddToCartButton = props => {
 				ADD TO CART
 			</Button>
 		</div>
-    )
+	)
 }
 
 const styles = {
@@ -28,7 +28,7 @@ const styles = {
 		marginRight: 6,
 		marginBottom: 15,
 	},
-    primaryBtn: {
+	primaryBtn: {
 		width: '100%',
 		fontColor: '#ffffff',
 	},

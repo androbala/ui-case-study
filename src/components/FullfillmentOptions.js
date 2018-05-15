@@ -4,9 +4,9 @@ import Button from 'material-ui/Button'
 import classNames from 'classnames'
 
 const FullfillmentOptions = props => {
-    const { classes = {} } = props
-    return (
-    	<div className={classes.pickupDiv}>
+	const { classes = {} } = props
+	return (
+		<div className={classes.pickupDiv}>
 			<Button
 				variant="raised"
 				color="primary"
@@ -20,7 +20,7 @@ const FullfillmentOptions = props => {
 				</a>
 			</div>
 		</div>
-    )
+	)
 }
 
 const styles = {
@@ -31,7 +31,7 @@ const styles = {
 		marginRight: 6,
 		marginBottom: 15,
 	},
-    primaryBtn: {
+	primaryBtn: {
 		width: '100%',
 		fontColor: '#ffffff',
 	},

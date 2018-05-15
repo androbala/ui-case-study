@@ -1,14 +1,14 @@
 import React from 'react'
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles'
 
 const ProductTitle = props => {
 	const { classes = {}, title } = props
 
-    return (
-        <p className={classes.productTitle}>
+	return (
+		<p className={classes.productTitle}>
 			{title}
-        </p>
-    )
+		</p>
+	)
 }
 
 const styles = {

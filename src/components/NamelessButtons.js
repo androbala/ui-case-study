@@ -4,39 +4,39 @@ import Button from 'material-ui/Button'
 import classNames from 'classnames'
 
 const NamelessButtons = props => {
-    const { classes = {} } = props
+	const { classes = {} } = props
 
-    return (
-        <div>
-            <Button
-                variant="raised"
-                color="default"
-                className={classNames(classes.secondaryBtn)}
-            >
+	return (
+		<div>
+			<Button
+				variant="raised"
+				color="default"
+				className={classNames(classes.secondaryBtn)}
+			>
                 ADD TO REGISTRY
-            </Button>
+			</Button>
 
-            <Button
-                variant="raised"
-                color="default"
-                className={classNames(classes.secondaryBtn)}
-            >
+			<Button
+				variant="raised"
+				color="default"
+				className={classNames(classes.secondaryBtn)}
+			>
                 ADD TO LIST
-            </Button>
+			</Button>
 
-            <Button
-                variant="raised"
-                color="default"
-                className={classNames(classes.btn, classes.secondaryBtn)}
-            >
+			<Button
+				variant="raised"
+				color="default"
+				className={classNames(classes.btn, classes.secondaryBtn)}
+			>
                 SHARE
-            </Button>
-        </div>
-    )
+			</Button>
+		</div>
+	)
 }
 
 const styles = {
-    secondaryBtn: {
+	secondaryBtn: {
 		fontSize: 12,
 		width: '30%',
 		marginTop: 25,
