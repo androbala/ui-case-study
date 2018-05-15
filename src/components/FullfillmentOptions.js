@@ -14,7 +14,11 @@ const FullfillmentOptions = props => {
 			>
 				PICKUP IN STORE
 			</Button>
-			<div className={classes.findTxt}>find in a store</div>
+			<div className={classes.findTxt}>
+				<a href="#" className={classes.anchorText}>
+					<b>find in a store</b>
+				</a>
+			</div>
 		</div>
     )
 }
@@ -38,6 +42,10 @@ const styles = {
 		textAlign: 'center',
 		marginTop: 2,
 		fontSize: '14px',
+	},
+	anchorText: {
+		textDecoration: 'none',
+		color: '#000000',
 	}
 }
 

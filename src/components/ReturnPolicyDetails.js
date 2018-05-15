@@ -28,20 +28,21 @@ const styles = {
 		fontSize: '18px',
 		color: grey[700],
         marginRight: 4,
-        paddingTop: 2,
+        paddingTop: 4,
     },
 	returnsSymbol: {
         float: 'left',
-        fontSize: '28px',
+        fontSize: '30px',
 		color: grey[700],
 		marginRight: 4,
+		color: grey[300],
     },
 	returnsDesc: {
         float: 'left',
         width: '80%',
 		fontSize: '10px',
 		color: grey[700],
-        paddingTop: 2,
+        paddingTop: 4,
 	}
 }
 

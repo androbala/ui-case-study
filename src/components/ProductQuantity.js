@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui';
 import Button from 'material-ui/Button';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import grey from '@material-ui/core/colors/grey';
 
 class ProductQuantity extends Component {
 	state = {
@@ -35,7 +36,7 @@ class ProductQuantity extends Component {
 				</span>
 				<span>
 					<Button variant="fab" color="default" aria-label="add" className={classes.qtyBtn} onClick={this.addQty}>
-						<AddIcon />
+						<AddIcon/>
 					</Button>
 				</span>
 				<input type="text" className={classes.qtyInput} value={qty} readOnly={true}/>
@@ -61,9 +62,11 @@ const styles = {
 		color: '#5e5e5e'
 	},
 	qtyBtn: {
-		width: '35px',
+		width: '37px',
 		height: '0px',
 		float: 'right',
+		backgroundColor: grey[400],
+		color: '#ffffff',
 	},
 	qtyLbl: {
 		marginTop: 8,
@@ -79,7 +82,7 @@ const styles = {
 		paddingTop: 5,
 		fontSize: '16px',
 		float: 'right',
-	}
+	},
 }
 
 export default withStyles(styles)(ProductQuantity)

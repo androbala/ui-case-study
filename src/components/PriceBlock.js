@@ -18,7 +18,7 @@ const PriceBlock = props => {
 
 const styles = {
 	priceBlock: {
-		paddingBottom: 15,
+		paddingBottom: 10,
 	},
 	price: {
 		fontSize: '27px'
