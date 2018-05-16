@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui'
 import Button from 'material-ui/Button'
 import classNames from 'classnames'
 
-const NamelessButtons = props => {
+const SecondaryActions = props => {
 	const { classes = {} } = props
 
 	return (
@@ -45,4 +45,4 @@ const styles = {
 	}
 }
 
-export default withStyles(styles)(NamelessButtons)
+export default withStyles(styles)(SecondaryActions)

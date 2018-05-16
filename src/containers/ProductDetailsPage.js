@@ -18,7 +18,7 @@ import FullfillmentOptions from '../components/FullfillmentOptions'
 import AddToCartButton from '../components/AddToCartButton'
 import ReturnPolicyDetails from '../components/ReturnPolicyDetails'
 import ProductHighlights from '../components/ProductHighlights'
-import NamelessButtons from '../components/NamelessButtons'
+import SecondaryActions from '../components/SecondaryActions'
 import ProductRating from '../components/ProductRating'
 import ProductReviews from '../components/ProductReviews'
 
@@ -81,7 +81,7 @@ class ProductDetailsPage extends React.Component {
 									</div>
 
 									<ReturnPolicyDetails />
-									<NamelessButtons />
+									<SecondaryActions />
 									<ProductHighlights highlights={product.highlights} />
 								</div>
 							</Grid>
