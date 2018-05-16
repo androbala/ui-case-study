@@ -6,19 +6,21 @@ import {get, map} from 'lodash'
 class ProductGallery extends Component {
 	state = {
 		primaryImage: '',
+		altImages: [],
 	}
 
 	static getDerivedStateFromProps(nextProps, prevState) {
 		return {
-			primaryImage: get(nextProps, 'images.PrimaryImage[0].image')
+			primaryImage: get(nextProps, 'images.PrimaryImage[0].image') || '/assets/img/sorry-image-na.png',
+			altImages: get(nextProps, 'images.AlternateImages') || [{image: '/assets/img/sorry-image-na.png'},],
 		}
 	}
 
 	updatePrimaryImage = (altImage) => this.setState({primaryImage: altImage.image})
 
 	render() {
-		const {classes = {}, images = {}} = this.props
-		const {primaryImage} = this.state
+		const {classes = {}} = this.props
+		const {primaryImage, altImages} = this.state
 
 		const settings = {
 			dots: false,
@@ -41,7 +43,7 @@ class ProductGallery extends Component {
 				</div>
 				<div className={classes.slider}>
 					<Slider {...settings}>
-						{map(images.AlternateImages, (altImage, index) => (
+						{map(altImages, (altImage, index) => (
 							<div key={index} className={classes.imgPlaceholder} onClick={(e) => this.updatePrimaryImage(altImage, e)}>
 								<img src={altImage.image} className={classes.secondaryImage}/>
 							</div>

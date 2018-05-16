@@ -40,3 +40,8 @@ hr {
 	height: 1px;
 	background-color: #DCDCDC;
 }
+
+.error-lbl {
+	font-size: 15px;
+	color: grey;
+}

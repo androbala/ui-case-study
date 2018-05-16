@@ -6,7 +6,12 @@ const ProductTitle = props => {
 
 	return (
 		<p className={classes.productTitle}>
-			{title}
+			{
+				title && <span> {title} </span>
+			}
+			{
+				!title && <span className="error-lbl"> title N/A at this moment </span>
+			}
 		</p>
 	)
 }
