@@ -45,7 +45,6 @@ class ProductDetailsPage extends React.Component {
 				<Grid
 					container
 					spacing={24}
-					className={classes.container}
 					alignItems={flexProps.alignItems}
 					direction={flexProps.direction}
 					justify={flexProps.justify}
@@ -55,7 +54,6 @@ class ProductDetailsPage extends React.Component {
 						<Grid
 							container
 							spacing={24}
-							className={classes.container}
 							alignItems={flexProps.alignItems}
 							direction={flexProps.direction}
 							justify={flexProps.justify}
@@ -108,8 +106,6 @@ class ProductDetailsPage extends React.Component {
 const styles = {
 	root: {
 		height: '100vh',
-	},
-	container: {
 	},
 	leftSection: {
 		textAlign: 'center',
