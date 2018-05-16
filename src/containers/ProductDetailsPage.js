@@ -51,41 +51,44 @@ class ProductDetailsPage extends React.Component {
 					justify={flexProps.justify}
 				>
 					<Grid item xs={12} sm={12} md={2} />
-					<Grid item xs={12} sm={10} md={4}>
-						<div className={classes.leftSection}>
-							<ProductTitle title={product.title} />
-							<ProductGallery images={product.images} />
-						</div>
-					</Grid>
-					<Grid item xs={12} sm={10} md={4} >
-						<div className={classes.rightSection}>
-							<PriceBlock price={product.price} />
-							<hr />
-							<ProductOffers offers={product.offers} />
-							<hr />
-							<ProductQuantity />
+					<Grid item xs={12} sm={10} md={8}>
+						<Grid
+							container
+							spacing={24}
+							className={classes.container}
+							alignItems={flexProps.alignItems}
+							direction={flexProps.direction}
+							justify={flexProps.justify}
+						>
+							<Grid item xs={12} sm={12} md={6} >
+								<div className={classes.leftSection}>
+									<ProductTitle title={product.title} />
+									<ProductGallery images={product.images} />
+								</div>
+							</Grid>
+							<Grid item xs={12} sm={12} md={6} >
+								<div className={classes.rightSection}>
+									<PriceBlock price={product.price} />
+									<hr />
+									<ProductOffers offers={product.offers} />
+									<hr />
+									<ProductQuantity />
 
-							<div>
-								{product.showFulfillmentOptions && <FullfillmentOptions />}
-								{product.showAddToCart && <AddToCartButton />}
-								<div className='clearfix'></div>
-							</div>
+									<div>
+										{product.showFulfillmentOptions && <FullfillmentOptions />}
+										{product.showAddToCart && <AddToCartButton />}
+										<div className='clearfix'></div>
+									</div>
 
-							<ReturnPolicyDetails />
-							<NamelessButtons />
-							<ProductHighlights highlights={product.highlights} />
-						</div>
+									<ReturnPolicyDetails />
+									<NamelessButtons />
+									<ProductHighlights highlights={product.highlights} />
+								</div>
+							</Grid>
+						</Grid>
 					</Grid>
 					<Grid item xs={12} sm={12} md={2} />
-				</Grid>
 
-				<Grid
-					container
-					spacing={24}
-					alignItems={flexProps.alignItems}
-					direction={flexProps.direction}
-					justify={flexProps.justify}
-				>
 					<Grid item xs={12} sm={12} md={2} />
 					<Grid item xs={12} sm={10} md={4}>
 						<div className={classes.leftSection}>
@@ -104,17 +107,16 @@ class ProductDetailsPage extends React.Component {
 
 const styles = {
 	root: {
-		flexGrow: 1,
 		height: '100vh',
 	},
 	container: {
 	},
 	leftSection: {
 		textAlign: 'center',
-		padding: 15,
+		padding: '5 15',
 	},
 	rightSection: {
-		padding: 15,
+		padding: '5 15',
 		marginTop: 45,
 	}
 }

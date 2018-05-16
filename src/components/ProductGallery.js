@@ -67,7 +67,7 @@ const styles = {
 	},
     slider: {
 		width: '70%',
-		margin: '30px auto 0px auto',
+		margin: '60px auto 0px auto',
 	}
 }
 
