@@ -3,11 +3,21 @@ import { withStyles } from 'material-ui'
 import Rating from 'react-rating'
 import dateFormat from  'dateformat'
 import grey from '@material-ui/core/colors/grey'
+import PropTypes from 'prop-types';
+import {get} from 'lodash'
 
 const ProductReviews = props => {
     const { classes = {}, reviews = {} } = props
-	const pro = reviews.Pro[0]
-	const con = reviews.Con[0]
+	const defaultReview = {
+		overallRating: '',
+		title: '',
+		review: '',
+		screenName: '',
+		datePosted: '',
+	}
+	const pro = get(reviews, 'Pro[0]') || defaultReview
+	const con = get(reviews, 'Con[0]') || defaultReview
+
 	return (
 		<React.Fragment>
 			<div className={classes.commentsSection}>
@@ -20,11 +30,13 @@ const ProductReviews = props => {
 					</div>
 					<hr/>
 					<div>
-						<Rating
-							emptySymbol="fa fa-star-o fa-1x low"
-							fullSymbol="fa fa-star fa-1x low"
-							initialRating={Number(pro.overallRating)}
-						/>
+						{
+							pro.overallRating && <Rating
+								emptySymbol="fa fa-star-o fa-1x low"
+								fullSymbol="fa fa-star fa-1x low"
+								initialRating={Number(pro.overallRating)}
+							/>
+						}
 					</div>
 					<h4>
 						{pro.title}
@@ -39,7 +51,7 @@ const ProductReviews = props => {
 							</a>
 						</span>
 						<span className={classes.dateSpan}>
-							{dateFormat(pro.datePosted, 'mmmm d, yyyy')}
+							{pro.datePosted && dateFormat(pro.datePosted, 'mmmm d, yyyy')}
 						</span>
 					</p>
 				</div>
@@ -52,11 +64,13 @@ const ProductReviews = props => {
 					</div>
 					<hr/>
 					<div>
-						<Rating
-							emptySymbol="fa fa-star-o fa-1x low"
-							fullSymbol="fa fa-star fa-1x low"
-							initialRating={Number(con.overallRating)}
-						/>
+						{
+							con.overallRating && <Rating
+								emptySymbol="fa fa-star-o fa-1x low"
+								fullSymbol="fa fa-star fa-1x low"
+								initialRating={Number(con.overallRating)}
+							/>
+						}
 					</div>
 					<h4>
 						{con.title}
@@ -71,7 +85,7 @@ const ProductReviews = props => {
 							</a>
 						</span>
 						<span className={classes.dateSpan}>
-							{dateFormat(con.datePosted, 'mmmm d, yyyy')}
+							{con.datePosted && dateFormat(con.datePosted, 'mmmm d, yyyy')}
 						</span>
 					</p>
 				</div>
@@ -112,6 +126,11 @@ const styles = {
 	screenNameTxt: {
 		textDecoration: 'none',
 	},
+}
+
+ProductReviews.propTypes = {
+	classes: PropTypes.object.isRequired,
+	reviews: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(ProductReviews)

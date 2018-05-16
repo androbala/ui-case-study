@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Slider from 'react-slick'
 import { withStyles } from 'material-ui'
 import {get, map} from 'lodash'
+import PropTypes from 'prop-types';
 
 class ProductGallery extends Component {
 	state = {
@@ -9,10 +10,10 @@ class ProductGallery extends Component {
 		altImages: [],
 	}
 
-	static getDerivedStateFromProps(nextProps, prevState) {
+	static getDerivedStateFromProps(nextProps) {
 		return {
 			primaryImage: get(nextProps, 'images.PrimaryImage[0].image') || '/assets/img/sorry-image-na.png',
-			altImages: get(nextProps, 'images.AlternateImages') || [{image: '/assets/img/sorry-image-na.png'},],
+			altImages: get(nextProps, 'images.AlternateImages') || [{image: '/assets/img/sorry-image-na.png'}],
 		}
 	}
 
@@ -71,6 +72,11 @@ const styles = {
 		width: '70%',
 		margin: '60px auto 0px auto',
 	}
+}
+
+ProductGallery.propTypes = {
+	classes: PropTypes.object.isRequired,
+	images: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(ProductGallery)

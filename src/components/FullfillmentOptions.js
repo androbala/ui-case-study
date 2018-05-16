@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import Button from 'material-ui/Button'
-import classNames from 'classnames'
+import PropTypes from 'prop-types';
 
 const FullfillmentOptions = props => {
 	const { classes = {} } = props
@@ -10,12 +10,12 @@ const FullfillmentOptions = props => {
 			<Button
 				variant="raised"
 				color="primary"
-				className={classNames(classes.primaryBtn, classes.pickupBtn)}
+				className={classes.pickupBtn}
 			>
 				PICKUP IN STORE
 			</Button>
 			<div className={classes.findTxt}>
-				<a href="#" className={classes.anchorText}>
+				<a href="#" className={classes.anchorTxt}>
 					<b>find in a store</b>
 				</a>
 			</div>
@@ -31,11 +31,9 @@ const styles = {
 		marginRight: 6,
 		marginBottom: 15,
 	},
-	primaryBtn: {
+	pickupBtn: {
 		width: '100%',
 		fontColor: '#ffffff',
-	},
-	pickupBtn: {
 		backgroundColor: '#000000',
 	},
 	findTxt: {
@@ -43,10 +41,14 @@ const styles = {
 		marginTop: 2,
 		fontSize: '14px',
 	},
-	anchorText: {
+	anchorTxt: {
 		textDecoration: 'none',
 		color: '#000000',
 	}
+}
+
+FullfillmentOptions.propTypes = {
+	classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(FullfillmentOptions)

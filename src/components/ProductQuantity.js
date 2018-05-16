@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withStyles } from 'material-ui';
-//import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import grey from '@material-ui/core/colors/grey';
+import PropTypes from 'prop-types';
 
 class ProductQuantity extends Component {
 	state = {
@@ -83,6 +83,10 @@ const styles = {
 		fontSize: '16px',
 		float: 'right',
 	},
+}
+
+ProductQuantity.propTypes = {
+	classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(ProductQuantity)

@@ -29,7 +29,7 @@ class ProductDetailsPage extends React.Component {
 		//mapping product attributes
 		const product = {
 			title: get(productData, 'title') || '',
-			images: get(productData, 'Images[0]') || [],
+			images: get(productData, 'Images[0]') || {},
 			price: get(productData, 'Offers[0].OfferPrice[0].formattedPriceValue') || '',
 			offers: get(productData, 'Promotions') || [],
 			showAddToCart: (productData.purchasingChannelCode === '0' || productData.purchasingChannelCode === '1'),

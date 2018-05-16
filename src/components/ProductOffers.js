@@ -3,6 +3,7 @@ import { withStyles } from 'material-ui';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import red from '@material-ui/core/colors/red'
 import {map} from 'lodash'
+import PropTypes from 'prop-types';
 
 const ProductOffers = props => {
 	const { classes = {}, offers = [] } = props
@@ -27,6 +28,11 @@ const styles = {
 		fontSize: '15px',
 		paddingTop: 5,
 	}
+}
+
+ProductOffers.propTypes = {
+	classes: PropTypes.object.isRequired,
+	offers: PropTypes.array.isRequired,
 }
 
 export default withStyles(styles)(ProductOffers)

@@ -1,6 +1,7 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import grey from '@material-ui/core/colors/grey'
+import PropTypes from 'prop-types';
 
 const ReturnPolicyDetails = props => {
 	const { classes = {} } = props
@@ -43,6 +44,10 @@ const styles = {
 		color: grey[700],
 		paddingTop: 4,
 	}
+}
+
+ReturnPolicyDetails.propTypes = {
+	classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(ReturnPolicyDetails)
