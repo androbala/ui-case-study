@@ -1,6 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-In the project root directory, you can run:
+##Live Demo on Heroku
+
+App is hosted on heroku, Please visit the below URL to see live demo of the application
+ 
+https://stark-depths-15133.herokuapp.com/
+
+##Steps to Run Locally
+
+In the project root directory, Please run:
 
 ### `npm install`
 
