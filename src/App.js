@@ -6,7 +6,7 @@ import {get} from 'lodash'
 import jsonData from './data/item-data.json'
 
 const App = props => {
-	const productData = get(jsonData, 'CatalogEntryView[0]')
+	const productData = get(jsonData, 'CatalogEntryView[0]') || {}
 
 	return (
 		<ProductDetailsPage {...props} productData={productData}/>

@@ -129,6 +129,7 @@ const flexProps = {
 
 ProductDetailsPage.propTypes = {
 	classes: PropTypes.object.isRequired,
+	productData: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(ProductDetailsPage)
