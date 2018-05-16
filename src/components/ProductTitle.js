@@ -1,6 +1,6 @@
 import React from 'react'
 import { withStyles } from 'material-ui/styles'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const ProductTitle = props => {
 	const { classes = {}, title = '' } = props

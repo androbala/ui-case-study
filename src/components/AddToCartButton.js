@@ -2,7 +2,7 @@ import React from 'react'
 import { withStyles } from 'material-ui'
 import Button from 'material-ui/Button'
 import red from '@material-ui/core/colors/red'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const AddToCartButton = props => {
 	const { classes = {} } = props

@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui'
 import Typography from 'material-ui/Typography'
 import ReactHtmlParser from 'react-html-parser'
 import {map} from 'lodash'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const ProductHighlights = props => {
 	const { classes = {}, highlights = [] } = props

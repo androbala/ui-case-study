@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui'
 import Rating from 'react-rating'
 import dateFormat from  'dateformat'
 import grey from '@material-ui/core/colors/grey'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import {get} from 'lodash'
 
 const ProductReviews = props => {

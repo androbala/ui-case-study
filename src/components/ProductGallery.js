@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Slider from 'react-slick'
 import { withStyles } from 'material-ui'
 import {get, map} from 'lodash'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 class ProductGallery extends Component {
 	state = {
@@ -57,18 +57,18 @@ class ProductGallery extends Component {
 }
 
 const styles = {
-    primaryImage: {
+	primaryImage: {
 		width: '75%',
 		margin: '0 auto',
 	},
 	secondaryImage: {
 		width: '55%',
 		margin: '0 auto',
-    },
+	},
 	imgPlaceholder: {
 		margin: 5,
 	},
-    slider: {
+	slider: {
 		width: '70%',
 		margin: '60px auto 0px auto',
 	}

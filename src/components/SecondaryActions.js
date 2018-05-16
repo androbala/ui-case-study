@@ -2,7 +2,7 @@ import React from 'react'
 import { withStyles } from 'material-ui'
 import Button from 'material-ui/Button'
 import classNames from 'classnames'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const SecondaryActions = props => {
 	const { classes = {} } = props

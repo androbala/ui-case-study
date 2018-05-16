@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import grey from '@material-ui/core/colors/grey'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const ReturnPolicyDetails = props => {
 	const { classes = {} } = props

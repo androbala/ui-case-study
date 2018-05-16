@@ -1,6 +1,6 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const PriceBlock = props => {
 	const { classes = {}, price = '' } = props

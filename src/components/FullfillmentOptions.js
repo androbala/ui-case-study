@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import Button from 'material-ui/Button'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const FullfillmentOptions = props => {
 	const { classes = {} } = props

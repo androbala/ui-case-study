@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from 'material-ui'
 import Rating from 'react-rating'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const ProductRating = props => {
     const { classes = {}, rating = 0, totalReviews = 0 } = props

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { withStyles } from 'material-ui';
-import Button from 'material-ui/Button';
-import AddIcon from '@material-ui/icons/Add';
-import RemoveIcon from '@material-ui/icons/Remove';
-import grey from '@material-ui/core/colors/grey';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { withStyles } from 'material-ui'
+import Button from 'material-ui/Button'
+import AddIcon from '@material-ui/icons/Add'
+import RemoveIcon from '@material-ui/icons/Remove'
+import grey from '@material-ui/core/colors/grey'
+import PropTypes from 'prop-types'
 
 class ProductQuantity extends Component {
 	state = {
@@ -12,23 +12,23 @@ class ProductQuantity extends Component {
 	}
 
 	addQty = () => {
-		let new_qty = this.state.qty + 1;
+		let new_qty = this.state.qty + 1
 		this.setState({qty: new_qty})
 	}
 
 	removeQty = () => {
-		let new_qty;
+		let new_qty
 		if (this.state.qty > 0) {
-			new_qty = this.state.qty - 1;
+			new_qty = this.state.qty - 1
 		} else {
-			new_qty = 0;
+			new_qty = 0
 		}
 		this.setState({qty: new_qty})
 	}
 
 	render() {
-		const { classes = {} } = this.props;
-		const { qty } = this.state;
+		const { classes = {} } = this.props
+		const { qty } = this.state
 		return (
 			<div className={classes.qtyDiv}>
 				<span className={classes.qtyLbl}>
