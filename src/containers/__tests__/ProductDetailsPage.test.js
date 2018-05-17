@@ -30,7 +30,7 @@ describe('ProductDetailsPage', () => {
 				features: [{ feature: 'data' }]
 			}],
 			CustomerReview: [{
-				consolidatedOverallRating: 1.2,
+				consolidatedOverallRating: '1',
 				totalReviews: '1234',
 				review: 'data'
 			}]
@@ -54,8 +54,8 @@ describe('ProductDetailsPage', () => {
 		expect(wrapper.find(ProductHighlights).exists()).toBeTruthy()
 		expect(wrapper.find(ProductHighlights).props().highlights).toBe(initialProps.ItemDescription[0].features)
 		expect(wrapper.find(ProductRating).exists()).toBeTruthy()
-		expect(wrapper.find(ProductRating).props().rating).toBe(initialProps.CustomerReview[0].consolidatedOverallRating)
-		expect(wrapper.find(ProductRating).props().totalReviews).toBe(initialProps.CustomerReview[0].totalReviews)
+		expect(wrapper.find(ProductRating).props().rating).toBe(Number(initialProps.CustomerReview[0].consolidatedOverallRating))
+		expect(wrapper.find(ProductRating).props().totalReviews).toBe(Number(initialProps.CustomerReview[0].totalReviews))
 		expect(wrapper.find(ProductReviews).exists()).toBeTruthy()
 		expect(wrapper.find(ProductReviews).props().reviews).toBe(initialProps.CustomerReview[0])
 	})
