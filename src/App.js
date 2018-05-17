@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductDetailsPage from './containers/ProductDetailsPage'
-import './App.css'
+import './styles/App.css'
 import {get} from 'lodash'
 
 import jsonData from './data/item-data.json'

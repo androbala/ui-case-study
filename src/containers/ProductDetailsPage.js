@@ -36,7 +36,7 @@ class ProductDetailsPage extends React.Component {
 			showFulfillmentOptions: (productData.purchasingChannelCode === '0'|| productData.purchasingChannelCode === '2'),
 			highlights: get(productData, 'ItemDescription[0].features') || [],
 			rating: Number(get(productData, 'CustomerReview[0].consolidatedOverallRating') || 0),
-			totalReviews: get(productData, 'CustomerReview[0].totalReviews') || 0,
+			totalReviews: Number(get(productData, 'CustomerReview[0].totalReviews') || 0),
 			reviews: get(productData, 'CustomerReview[0]') || {}
 		}
 
